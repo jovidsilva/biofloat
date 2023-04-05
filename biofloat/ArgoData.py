@@ -423,7 +423,7 @@ class ArgoData(object):
             self.logger.exception(e)
             return urls
 
-        soup = BeautifulSoup(req.text, 'xml.parser')
+        soup = BeautifulSoup(req.text, "lxml")
 
         # Expect that this is a standard TDS with dodsC used for OpenDAP
         base_url = '/'.join(catalog_url.split('/')[:4]) + '/dodsC/'
