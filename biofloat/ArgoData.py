@@ -21,7 +21,8 @@ try:
 except ImportError:
     from cStringIO import StringIO
 
-from exceptions import RequiredVariableNotPresent
+class RequiredVariableNotPresent(Exception):
+    pass
 
 class ArgoData(object):
     '''Collection of methods for working with Argo profiling float data.
