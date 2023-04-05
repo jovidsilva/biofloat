@@ -62,8 +62,7 @@ setup(
         'requests>=2.8',
         'seawater>=3.3',
         'simpletable>=0.2',
-        'statsmodels>=0.6.1',
-        'xray>=0.6'
+        'statsmodels>=0.6.1'
     ],
     scripts = ['scripts/load_biofloat_cache.py',
                'scripts/woa_calibration.py'],
