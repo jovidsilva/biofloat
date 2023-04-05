@@ -12,4 +12,3 @@ requests==2.8.1
 #scipy==0.16.1
 seawater==3.3.4
 simpletable==0.2.2
-xray==0.6.1
