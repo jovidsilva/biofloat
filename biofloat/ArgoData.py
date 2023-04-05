@@ -1,7 +1,7 @@
 import os
 import re
 import logging
-import urllib2
+import urllib.request as urllib2
 import requests
 import pandas as pd
 import pydap.client
