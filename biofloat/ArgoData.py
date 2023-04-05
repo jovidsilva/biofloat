@@ -6,7 +6,7 @@ import requests
 import pandas as pd
 import pydap.client
 import pydap.exceptions
-import xray
+import xarray
 
 from bs4 import BeautifulSoup
 from collections import namedtuple
@@ -258,7 +258,7 @@ class ArgoData(object):
         df = self._blank_df
         try:
             self.logger.debug('Opening %s', url)
-            ds = xray.open_dataset(url)
+            ds = xarray.open_dataset(url)
         except pydap.exceptions.ServerError:
             self.logger.error('ServerError opening %s', url)
             return df
@@ -293,7 +293,7 @@ class ArgoData(object):
         dt = None
         try:
             self.logger.debug('Opening %s', url)
-            ds = xray.open_dataset(url)
+            ds = xarray.open_dataset(url)
         except pydap.exceptions.ServerError:
             self.logger.error('ServerError opening %s', url)
             return dt
