@@ -7,6 +7,7 @@ import pandas as pd
 import pydap.client
 import pydap.exceptions
 import xarray
+import numpy
 
 from bs4 import BeautifulSoup
 from collections import namedtuple
@@ -64,7 +65,7 @@ class ArgoData(object):
     _compparms = dict(complib='zlib', complevel=9)
 
     # PyTables: Use non-empty minimal df to minimize HDF file size
-    _blank_df = pd.DataFrame([pd.np.nan])
+    _blank_df = pd.DataFrame([numpy.nan])
 
     def __init__(self, verbosity=0, cache_file=None, bio_list=('DOXY_ADJUSTED',),
             status_url='http://argo.jcommops.org/FTPRoot/Argo/Status/argo_all.txt',
