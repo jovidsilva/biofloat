@@ -547,7 +547,7 @@ class ArgoData(object):
         max_wmo_list = self._validate_cache_file_parm('wmo', wmo_list)
 
         float_df = pd.DataFrame()
-        for f, (wmo, dac_url) in enumerate(self.get_dac_urls(max_wmo_list).iteritems()):
+        for f, (wmo, dac_url) in enumerate(self.get_dac_urls(max_wmo_list).items()):
             float_msg = 'WMO_{}: Float {} of {}'. format(wmo, f+1, len(max_wmo_list))
             opendap_urls = self.get_profile_opendap_urls(dac_url)
             for i, url in enumerate(opendap_urls):
@@ -642,7 +642,7 @@ class ArgoData(object):
         Profile = namedtuple('profile', 'wmo name url code dateloaded')
         with pd.HDFStore(self.cache_file, mode='r+') as f:
             self.logger.debug('Building wmo_df by scanning %s', self.cache_file)
-            for name, wmo in wmo_dict.iteritems():
+            for name, wmo in wmo_dict.items():
                 m = f.get_storer(name).attrs.metadata
                 _, code = self._float_profile_key(m['url'])
                 profiles.append(Profile(wmo, name, m['url'], code, m['dateloaded']))
