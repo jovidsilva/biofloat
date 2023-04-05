@@ -418,12 +418,13 @@ class ArgoData(object):
         try:
             self.logger.info("Checking for updates at %s", catalog_url)
             req = requests.get(catalog_url)
+            print(req)
         except ConnectionError as e:
             self.logger.error('Cannot open catalog_url = %s', catalog_url)
             self.logger.exception(e)
             return urls
-
-        soup = BeautifulSoup(req.text, "lxml")
+        
+        soup = BeautifulSoup(req.text, "html.parser")
 
         # Expect that this is a standard TDS with dodsC used for OpenDAP
         base_url = '/'.join(catalog_url.split('/')[:4]) + '/dodsC/'
